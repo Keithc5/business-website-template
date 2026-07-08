@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" role="img" aria-labelledby="title desc">
+  <title id="title">Customer setup placeholder</title>
+  <desc id="desc">Minimal abstract customer setup placeholder image.</desc>
+  <rect width="800" height="600" fill="#f3f4f6"/>
+  <circle cx="256" cy="240" r="96" fill="#dbeafe"/>
+  <rect x="376" y="172" width="224" height="136" rx="24" fill="#ffffff" stroke="#e5e7eb" stroke-width="4"/>
+  <rect x="168" y="380" width="464" height="36" rx="18" fill="#2563eb"/>
+  <rect x="216" y="448" width="368" height="26" rx="13" fill="#9ca3af"/>
+</svg>

@@ -1,0 +1,57 @@
+.contact-cta {
+  padding-block: var(--space-8);
+  background: var(--color-background);
+}
+
+.contact-cta__inner {
+  display: grid;
+  gap: var(--space-5);
+  align-items: center;
+  padding: var(--space-6);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-md);
+}
+
+.contact-cta__content {
+  max-width: 42rem;
+}
+
+.contact-cta__eyebrow {
+  margin-bottom: var(--space-2);
+  color: var(--color-primary);
+  font-size: 0.8125rem;
+  font-weight: 700;
+  line-height: 1.2;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.contact-cta__title {
+  font-size: clamp(2rem, 4vw, 3rem);
+}
+
+.contact-cta__description {
+  max-width: 38rem;
+  margin-top: var(--space-3);
+  color: var(--color-text-muted);
+  font-size: 1.125rem;
+}
+
+.contact-cta__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+}
+
+@media (min-width: 900px) {
+  .contact-cta__inner {
+    grid-template-columns: minmax(0, 1fr) auto;
+    padding: var(--space-8);
+  }
+
+  .contact-cta__actions {
+    justify-content: flex-end;
+  }
+}

@@ -1,2 +1,60 @@
 ---
+import BaseLayout from '@layouts/BaseLayout.astro';
+import { business } from '@config/business';
+import Section from '@components/ui/Section.astro';
+import SectionHeading from '@components/ui/SectionHeading.astro';
+import Grid from '@components/ui/Grid.astro';
+import Card from '@components/ui/Card.astro';
+import ContactCTA from '@components/sections/ContactCTA.astro';
 ---
+
+<BaseLayout title={`About | ${business.name}`}>
+  <main>
+    <Section>
+      <div class="about-page__intro">
+        <SectionHeading
+          eyebrow={business.aboutPage.eyebrow}
+          title={business.aboutPage.title}
+          description={business.aboutPage.description}
+          align="center"
+        />
+      </div>
+    </Section>
+
+    <Section background="muted">
+      <div class="about-page__story">
+        <SectionHeading
+          title={business.aboutPage.introTitle}
+          description={business.aboutPage.intro}
+        />
+      </div>
+    </Section>
+
+    <Section>
+      <div class="about-page__values">
+        <SectionHeading
+          eyebrow="Why choose us"
+          title="A template shaped around trust"
+          description="Use these value cards to highlight the qualities customers should associate with the business."
+          align="center"
+        />
+
+        <Grid columns={3} gap="md">
+          {business.aboutPage.values.map((value) => (
+            <Card title={value.title} description={value.description} />
+          ))}
+        </Grid>
+      </div>
+    </Section>
+
+    <ContactCTA
+      eyebrow={business.contactCta.eyebrow}
+      title={business.contactCta.title}
+      description={business.contactCta.description}
+      primaryCtaLabel={business.contactCta.primaryCtaLabel}
+      primaryCtaHref={business.contactCta.primaryCtaHref}
+      secondaryCtaLabel={business.contactCta.secondaryCtaLabel}
+      secondaryCtaHref={business.contactCta.secondaryCtaHref}
+    />
+  </main>
+</BaseLayout>

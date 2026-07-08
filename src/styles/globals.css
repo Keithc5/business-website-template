@@ -1,0 +1,57 @@
+@import "./tokens.css";
+@import "./typography.css";
+@import "./layout.css";
+@import "./components/button.css";
+@import "./components/card.css";
+@import "./components/grid.css";
+@import "./components/section-heading.css";
+@import "./components/services.css";
+@import "./components/gallery.css";
+@import "./components/testimonials.css";
+@import "./components/faq.css";
+@import "./components/contact-cta.css";
+@import "./components/contact-form.css";
+@import "./components/about-page.css";
+@import "./components/services-page.css";
+@import "./components/gallery-page.css";
+@import "./components/contact-page.css";
+@import "./components/header.css";
+@import "./components/footer.css";
+@import "./components/hero.css";
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+}
+
+img,
+picture,
+svg,
+video {
+  display: block;
+  max-width: 100%;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}

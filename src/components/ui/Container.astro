@@ -1,6 +1,6 @@
 ---
 interface Props {
-  as?: keyof HTMLElementTagNameMap;
+  as?: "div" | "section" | "article" | "main" | "header" | "footer" | "nav";
   class?: string;
 }
 
@@ -13,18 +13,3 @@ const {
 <Tag class={`container ${className}`}>
   <slot />
 </Tag>
-
-<style>
-  .container {
-    width: 100%;
-    max-width: var(--container-width);
-    margin-inline: auto;
-    padding-inline: var(--space-4);
-  }
-
-  @media (min-width: 768px) {
-    .container {
-      padding-inline: var(--space-6);
-    }
-  }
-</style>

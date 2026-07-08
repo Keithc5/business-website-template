@@ -1,0 +1,45 @@
+---
+import Section from '@components/ui/Section.astro';
+import SectionHeading from '@components/ui/SectionHeading.astro';
+
+interface FAQItem {
+  question: string;
+  answer: string;
+}
+
+interface Props {
+  eyebrow?: string;
+  title: string;
+  description?: string;
+  items: FAQItem[];
+}
+
+const {
+  eyebrow,
+  title,
+  description,
+  items,
+} = Astro.props;
+---
+
+<Section>
+  <div class="faq">
+    <SectionHeading
+      eyebrow={eyebrow}
+      title={title}
+      description={description}
+      align="center"
+    />
+
+    <div class="faq__list">
+      {items.map((item) => (
+        <details class="faq__item">
+          <summary class="faq__question">{item.question}</summary>
+          <div class="faq__answer">
+            <p>{item.answer}</p>
+          </div>
+        </details>
+      ))}
+    </div>
+  </div>
+</Section>

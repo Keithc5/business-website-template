@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" role="img" aria-labelledby="title desc">
+  <title id="title">Featured work placeholder</title>
+  <desc id="desc">Minimal abstract featured work placeholder image.</desc>
+  <rect width="800" height="600" fill="#f3f4f6"/>
+  <rect x="112" y="112" width="232" height="168" rx="22" fill="#ffffff" stroke="#e5e7eb" stroke-width="4"/>
+  <rect x="456" y="112" width="232" height="168" rx="22" fill="#dbeafe"/>
+  <rect x="112" y="336" width="232" height="152" rx="22" fill="#dbeafe"/>
+  <rect x="456" y="336" width="232" height="152" rx="22" fill="#ffffff" stroke="#e5e7eb" stroke-width="4"/>
+  <circle cx="400" cy="300" r="54" fill="#2563eb"/>
+</svg>

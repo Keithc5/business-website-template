@@ -1,2 +1,86 @@
 ---
+import BaseLayout from '@layouts/BaseLayout.astro';
+import { business } from '@config/business';
+import Section from '@components/ui/Section.astro';
+import SectionHeading from '@components/ui/SectionHeading.astro';
+import Grid from '@components/ui/Grid.astro';
+import Card from '@components/ui/Card.astro';
+import ContactForm from '@components/sections/ContactForm.astro';
+
+const contactCards = [
+  {
+    title: "Email",
+    description: business.contact.email,
+    href: `mailto:${business.contact.email}`,
+  },
+  {
+    title: "Phone",
+    description: business.contact.phone,
+    href: `tel:${business.contact.phone.replaceAll(" ", "")}`,
+  },
+  {
+    title: "Location",
+    description: business.contact.address,
+  },
+];
 ---
+
+<BaseLayout title={`Contact | ${business.name}`}>
+  <main>
+    <Section>
+      <div class="contact-page__intro">
+        <SectionHeading
+          eyebrow={business.contactPage.eyebrow}
+          title={business.contactPage.title}
+          description={business.contactPage.description}
+          align="center"
+        />
+      </div>
+    </Section>
+
+    <Section background="muted">
+      <div class="contact-page__details">
+        <SectionHeading
+          title={business.contactPage.detailsTitle}
+          description={business.contactPage.detailsDescription}
+          align="center"
+        />
+
+        <Grid columns={3} gap="md">
+          {contactCards.map((item) => (
+            <Card
+              title={item.title}
+              description={item.description}
+              href={item.href}
+            />
+          ))}
+        </Grid>
+      </div>
+    </Section>
+
+    <ContactForm
+      eyebrow={business.contactForm.eyebrow}
+      title={business.contactForm.title}
+      description={business.contactForm.description}
+    />
+
+    <Section>
+      <div class="contact-page__hours">
+        <SectionHeading
+          title={business.contactPage.hoursTitle}
+          description={business.contactPage.hoursDescription}
+          align="center"
+        />
+
+        <div class="contact-page__hours-list">
+          {business.openingHours.map((item) => (
+            <div class="contact-page__hours-row">
+              <span>{item.label}</span>
+              <strong>{item.value}</strong>
+            </div>
+          ))}
+        </div>
+      </div>
+    </Section>
+  </main>
+</BaseLayout>

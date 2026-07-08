@@ -1,2 +1,68 @@
 ---
+import BaseLayout from '@layouts/BaseLayout.astro';
+import { business } from '@config/business';
+import Section from '@components/ui/Section.astro';
+import SectionHeading from '@components/ui/SectionHeading.astro';
+import Grid from '@components/ui/Grid.astro';
+import Card from '@components/ui/Card.astro';
+import ContactCTA from '@components/sections/ContactCTA.astro';
+
+const featuredItem = business.gallery[0];
 ---
+
+<BaseLayout title={`Gallery | ${business.name}`}>
+  <main>
+    <Section>
+      <div class="gallery-page__intro">
+        <SectionHeading
+          eyebrow={business.galleryPage.eyebrow}
+          title={business.galleryPage.title}
+          description={business.galleryPage.description}
+          align="center"
+        />
+      </div>
+    </Section>
+
+    <Section background="muted">
+      <div class="gallery-page__grid">
+        <Grid columns={3} gap="md">
+          {business.gallery.map((item) => (
+            <figure class="gallery-item">
+              <img class="gallery-item__image" src={item.image} alt={item.alt} loading="lazy" />
+              <figcaption class="gallery-item__title">{item.title}</figcaption>
+            </figure>
+          ))}
+        </Grid>
+      </div>
+    </Section>
+
+    <Section>
+      <div class="gallery-page__featured">
+        <SectionHeading
+          eyebrow="Featured"
+          title={business.galleryPage.featuredTitle}
+          description={business.galleryPage.featuredDescription}
+        />
+
+        <Card title={featuredItem.title} description={featuredItem.alt}>
+          <img
+            slot="image"
+            src={featuredItem.image}
+            alt={featuredItem.alt}
+            loading="lazy"
+          />
+        </Card>
+      </div>
+    </Section>
+
+    <ContactCTA
+      eyebrow={business.contactCta.eyebrow}
+      title={business.contactCta.title}
+      description={business.contactCta.description}
+      primaryCtaLabel={business.contactCta.primaryCtaLabel}
+      primaryCtaHref={business.contactCta.primaryCtaHref}
+      secondaryCtaLabel={business.contactCta.secondaryCtaLabel}
+      secondaryCtaHref={business.contactCta.secondaryCtaHref}
+    />
+  </main>
+</BaseLayout>

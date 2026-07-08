@@ -1,0 +1,66 @@
+---
+interface Props {
+  title?: string;
+  description?: string;
+  href?: string;
+  class?: string;
+}
+
+const {
+  title,
+  description,
+  href,
+  class: className = "",
+} = Astro.props;
+
+const classes = [
+  "card",
+  href ? "card--clickable" : "",
+  className,
+].filter(Boolean).join(" ");
+
+const hasImage = Astro.slots.has("image");
+const hasFooter = Astro.slots.has("footer");
+---
+
+{href ? (
+  <a href={href} class={classes}>
+    {hasImage && (
+      <div class="card__image">
+        <slot name="image" />
+      </div>
+    )}
+
+    <div class="card__content">
+      {title && <h3 class="card__title">{title}</h3>}
+      {description && <p class="card__description">{description}</p>}
+      <slot />
+    </div>
+
+    {hasFooter && (
+      <div class="card__footer">
+        <slot name="footer" />
+      </div>
+    )}
+  </a>
+) : (
+  <article class={classes}>
+    {hasImage && (
+      <div class="card__image">
+        <slot name="image" />
+      </div>
+    )}
+
+    <div class="card__content">
+      {title && <h3 class="card__title">{title}</h3>}
+      {description && <p class="card__description">{description}</p>}
+      <slot />
+    </div>
+
+    {hasFooter && (
+      <div class="card__footer">
+        <slot name="footer" />
+      </div>
+    )}
+  </article>
+)}

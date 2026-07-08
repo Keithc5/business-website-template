@@ -1,22 +1,67 @@
 ---
 import BaseLayout from '@layouts/BaseLayout.astro';
 import { business } from '@config/business';
-import Section from "@components/ui/Section.astro";
-import Button from "@components/ui/Button.astro";
+import Hero from "@components/sections/Hero.astro";
+import Services from "@components/sections/Services.astro";
+import Gallery from "@components/sections/Gallery.astro";
+import Testimonials from "@components/sections/Testimonials.astro";
+import FAQ from "@components/sections/FAQ.astro";
+import ContactCTA from "@components/sections/ContactCTA.astro";
+import ContactForm from "@components/sections/ContactForm.astro";
 ---
 
 <BaseLayout title={business.seo.title}>
   <main>
-    <Section>
-      <p>{business.tagline}</p>
+    <Hero
+      eyebrow={business.tagline}
+      title={business.name}
+      description={business.seo.description}
+      primaryCtaLabel="Get in touch"
+      primaryCtaHref="/contact"
+    />
 
-      <h1>{business.name}</h1>
+    <Services
+      eyebrow="Services"
+      title="How we can help"
+      description="A flexible set of services that can be adapted for local businesses, events, and customer needs."
+      services={business.services}
+    />
 
-      <p>{business.seo.description}</p>
+    <Gallery
+      eyebrow="Gallery"
+      title="Recent work"
+      description="A simple gallery section for showcasing projects, products, events, or customer outcomes."
+      items={business.gallery}
+    />
 
-      <Button href="/contact">
-        Get in touch
-      </Button>
-    </Section>
+    <Testimonials
+      eyebrow="Testimonials"
+      title="What customers say"
+      description="Short, adaptable customer quotes that help build trust for local business websites."
+      testimonials={business.testimonials}
+    />
+
+    <FAQ
+      eyebrow="FAQ"
+      title="Common questions"
+      description="Helpful answers that can be tailored to each business before launch."
+      items={business.faqs}
+    />
+
+    <ContactCTA
+      eyebrow={business.contactCta.eyebrow}
+      title={business.contactCta.title}
+      description={business.contactCta.description}
+      primaryCtaLabel={business.contactCta.primaryCtaLabel}
+      primaryCtaHref={business.contactCta.primaryCtaHref}
+      secondaryCtaLabel={business.contactCta.secondaryCtaLabel}
+      secondaryCtaHref={business.contactCta.secondaryCtaHref}
+    />
+
+    <ContactForm
+      eyebrow={business.contactForm.eyebrow}
+      title={business.contactForm.title}
+      description={business.contactForm.description}
+    />
   </main>
 </BaseLayout>

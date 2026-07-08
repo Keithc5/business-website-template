@@ -1,0 +1,10 @@
+.about-page__intro,
+.about-page__values {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+}
+
+.about-page__story {
+  max-width: 48rem;
+}

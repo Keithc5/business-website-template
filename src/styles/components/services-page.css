@@ -1,0 +1,7 @@
+.services-page__intro,
+.services-page__grid,
+.services-page__process {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+}

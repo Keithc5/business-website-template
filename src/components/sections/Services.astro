@@ -1,0 +1,47 @@
+---
+import Section from '@components/ui/Section.astro';
+import SectionHeading from '@components/ui/SectionHeading.astro';
+import Grid from '@components/ui/Grid.astro';
+import Card from '@components/ui/Card.astro';
+
+interface Service {
+  title: string;
+  description: string;
+  href?: string;
+}
+
+interface Props {
+  eyebrow?: string;
+  title: string;
+  description?: string;
+  services: Service[];
+}
+
+const {
+  eyebrow,
+  title,
+  description,
+  services,
+} = Astro.props;
+---
+
+<Section background="muted">
+  <div class="services">
+    <SectionHeading
+      eyebrow={eyebrow}
+      title={title}
+      description={description}
+      align="center"
+    />
+
+    <Grid columns={3} gap="md">
+      {services.map((service) => (
+        <Card
+          title={service.title}
+          description={service.description}
+          href={service.href}
+        />
+      ))}
+    </Grid>
+  </div>
+</Section>

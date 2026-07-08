@@ -1,0 +1,18 @@
+.gallery-page__intro,
+.gallery-page__grid {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+}
+
+.gallery-page__featured {
+  display: grid;
+  gap: var(--space-6);
+  align-items: start;
+}
+
+@media (min-width: 900px) {
+  .gallery-page__featured {
+    grid-template-columns: minmax(0, 0.85fr) minmax(18rem, 1fr);
+  }
+}

@@ -1,2 +1,71 @@
 ---
+import BaseLayout from '@layouts/BaseLayout.astro';
+import { business } from '@config/business';
+import Section from '@components/ui/Section.astro';
+import SectionHeading from '@components/ui/SectionHeading.astro';
+import Grid from '@components/ui/Grid.astro';
+import Card from '@components/ui/Card.astro';
+import ContactCTA from '@components/sections/ContactCTA.astro';
 ---
+
+<BaseLayout title={`Services | ${business.name}`}>
+  <main>
+    <Section>
+      <div class="services-page__intro">
+        <SectionHeading
+          eyebrow={business.servicesPage.eyebrow}
+          title={business.servicesPage.title}
+          description={business.servicesPage.description}
+          align="center"
+        />
+      </div>
+    </Section>
+
+    <Section background="muted">
+      <div class="services-page__grid">
+        <SectionHeading
+          title="What we offer"
+          description="Replace these cards with the core services, products, or packages each business wants to promote."
+          align="center"
+        />
+
+        <Grid columns={3} gap="md">
+          {business.services.map((service) => (
+            <Card
+              title={service.title}
+              description={service.description}
+              href={service.href}
+            />
+          ))}
+        </Grid>
+      </div>
+    </Section>
+
+    <Section>
+      <div class="services-page__process">
+        <SectionHeading
+          eyebrow="Process"
+          title={business.servicesPage.processTitle}
+          description={business.servicesPage.processDescription}
+          align="center"
+        />
+
+        <Grid columns={3} gap="md">
+          {business.servicesPage.process.map((step) => (
+            <Card title={step.title} description={step.description} />
+          ))}
+        </Grid>
+      </div>
+    </Section>
+
+    <ContactCTA
+      eyebrow={business.contactCta.eyebrow}
+      title={business.contactCta.title}
+      description={business.contactCta.description}
+      primaryCtaLabel={business.contactCta.primaryCtaLabel}
+      primaryCtaHref={business.contactCta.primaryCtaHref}
+      secondaryCtaLabel={business.contactCta.secondaryCtaLabel}
+      secondaryCtaHref={business.contactCta.secondaryCtaHref}
+    />
+  </main>
+</BaseLayout>

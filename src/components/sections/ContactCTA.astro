@@ -1,0 +1,55 @@
+---
+import Container from '@components/ui/Container.astro';
+import Button from '@components/ui/Button.astro';
+
+interface Props {
+  eyebrow?: string;
+  title: string;
+  description?: string;
+  primaryCtaLabel?: string;
+  primaryCtaHref?: string;
+  secondaryCtaLabel?: string;
+  secondaryCtaHref?: string;
+}
+
+const {
+  eyebrow,
+  title,
+  description,
+  primaryCtaLabel,
+  primaryCtaHref,
+  secondaryCtaLabel,
+  secondaryCtaHref,
+} = Astro.props;
+
+const hasPrimaryCta = Boolean(primaryCtaLabel && primaryCtaHref);
+const hasSecondaryCta = Boolean(secondaryCtaLabel && secondaryCtaHref);
+---
+
+<section class="contact-cta">
+  <Container>
+    <div class="contact-cta__inner">
+      <div class="contact-cta__content">
+        {eyebrow && <p class="contact-cta__eyebrow">{eyebrow}</p>}
+        <h2 class="contact-cta__title">{title}</h2>
+        {description && <p class="contact-cta__description">{description}</p>}
+      </div>
+
+      {(hasPrimaryCta || hasSecondaryCta) && (
+        <div class="contact-cta__actions">
+          {hasPrimaryCta && (
+            <Button href={primaryCtaHref}>
+              {primaryCtaLabel}
+            </Button>
+          )}
+
+          {hasSecondaryCta && (
+            <Button href={secondaryCtaHref} variant="outline">
+              {secondaryCtaLabel}
+            </Button>
+          )}
+        </div>
+      )}
+    </div>
+  </Container>
+</section>

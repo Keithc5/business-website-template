@@ -1,2 +1,65 @@
 ---
+import Button from '@components/ui/Button.astro';
+import Container from '@components/ui/Container.astro';
+
+interface Props {
+  eyebrow?: string;
+  title: string;
+  description?: string;
+  primaryCtaLabel?: string;
+  primaryCtaHref?: string;
+  secondaryCtaLabel?: string;
+  secondaryCtaHref?: string;
+}
+
+const {
+  eyebrow,
+  title,
+  description,
+  primaryCtaLabel,
+  primaryCtaHref,
+  secondaryCtaLabel,
+  secondaryCtaHref,
+} = Astro.props;
+
+const hasPrimaryCta = Boolean(primaryCtaLabel && primaryCtaHref);
+const hasSecondaryCta = Boolean(secondaryCtaLabel && secondaryCtaHref);
+const hasImage = Astro.slots.has("image");
 ---
+
+<section class:list={[
+  "hero",
+  hasImage && "hero--with-image",
+]}>
+  <Container>
+    <div class="hero__inner">
+      <div class="hero__content">
+        {eyebrow && <p class="hero__eyebrow">{eyebrow}</p>}
+        <h1 class="hero__title">{title}</h1>
+        {description && <p class="hero__description">{description}</p>}
+
+        {(hasPrimaryCta || hasSecondaryCta) && (
+          <div class="hero__actions">
+            {hasPrimaryCta && (
+              <Button href={primaryCtaHref}>
+                {primaryCtaLabel}
+              </Button>
+            )}
+
+            {hasSecondaryCta && (
+              <Button href={secondaryCtaHref} variant="secondary">
+                {secondaryCtaLabel}
+              </Button>
+            )}
+          </div>
+        )}
+      </div>
+
+      {hasImage && (
+        <div class="hero__image">
+          <slot name="image" />
+        </div>
+      )}
+    </div>
+  </Container>
+</section>
