@@ -1,0 +1,40 @@
+---
+import Container from "@components/ui/Container.astro";
+
+type Background = "default" | "muted";
+
+interface Props {
+  background?: Background;
+  class?: string;
+}
+
+const {
+  background = "default",
+  class: className = "",
+} = Astro.props;
+
+const backgroundClass =
+  background === "muted"
+    ? "section--muted"
+    : "section--default";
+---
+
+<section class={`section ${backgroundClass} ${className}`}>
+  <Container>
+    <slot />
+  </Container>
+</section>
+
+<style>
+  .section {
+    padding-block: var(--space-8);
+  }
+
+  .section--default {
+    background: var(--color-background);
+  }
+
+  .section--muted {
+    background: var(--color-surface-muted);
+  }
+</style>

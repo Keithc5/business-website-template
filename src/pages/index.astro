@@ -1,17 +1,22 @@
 ---
-
+import BaseLayout from '@layouts/BaseLayout.astro';
+import { business } from '@config/business';
+import Section from "@components/ui/Section.astro";
+import Button from "@components/ui/Button.astro";
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<BaseLayout title={business.seo.title}>
+  <main>
+    <Section>
+      <p>{business.tagline}</p>
+
+      <h1>{business.name}</h1>
+
+      <p>{business.seo.description}</p>
+
+      <Button href="/contact">
+        Get in touch
+      </Button>
+    </Section>
+  </main>
+</BaseLayout>

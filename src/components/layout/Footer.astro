@@ -1,0 +1,30 @@
+---
+import { business } from '@config/business';
+
+const year = new Date().getFullYear();
+---
+
+<footer class="site-footer">
+  <div class="container footer-content">
+    <div>
+      <h2>{business.name}</h2>
+      <p>{business.tagline}</p>
+    </div>
+
+    <nav aria-label="Footer navigation">
+      <ul class="footer-links">
+        <li><a href="/">Home</a></li>
+        <li><a href="/about">About</a></li>
+        <li><a href="/services">Services</a></li>
+        <li><a href="/gallery">Gallery</a></li>
+        <li><a href="/contact">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+
+  <div class="footer-bottom">
+    <p>
+      © {year} {business.name}. All rights reserved.
+    </p>
+  </div>
+</footer>
