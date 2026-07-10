@@ -10,4 +10,14 @@ export default [
   {
     ignores: ["dist/**", ".astro/**", "node_modules/**"],
   },
+
+  {
+    files: ["scripts/**/*.mjs"],
+    languageOptions: {
+      globals: {
+        console: "readonly",
+        process: "readonly",
+      },
+    },
+  },
 ];

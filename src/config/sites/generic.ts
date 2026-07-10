@@ -1,4 +1,6 @@
-export const business = {
+import type { BusinessConfig } from "@config/types";
+
+export const genericSite: BusinessConfig = {
   name: "Business Name",
   tagline: "Professional websites for small local businesses",
 
@@ -208,4 +210,4 @@ export const business = {
     description:
       "A modern, professional website template for small local Irish businesses.",
   },
-} as const;
+};

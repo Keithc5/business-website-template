@@ -7,9 +7,18 @@
   },
   "scripts": {
     "dev": "astro dev",
+    "dev:generic": "node scripts/site-command.mjs dev generic",
+    "dev:glensound-brother-in-law": "node scripts/site-command.mjs dev glensound-brother-in-law",
+    "dev:glensound-dad": "node scripts/site-command.mjs dev glensound-dad",
+    "dev:balloons4u": "node scripts/site-command.mjs dev balloons4u",
     "build": "astro build",
+    "build:generic": "node scripts/site-command.mjs build generic",
+    "build:glensound-brother-in-law": "node scripts/site-command.mjs build glensound-brother-in-law",
+    "build:glensound-dad": "node scripts/site-command.mjs build glensound-dad",
+    "build:balloons4u": "node scripts/site-command.mjs build balloons4u",
     "preview": "astro preview",
     "astro": "astro",
+    "cms:proxy": "npx decap-server",
     "format": "prettier --write .",
     "lint": "eslint"
   },

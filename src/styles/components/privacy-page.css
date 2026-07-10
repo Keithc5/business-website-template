@@ -1,0 +1,55 @@
+.privacy-page__intro {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+}
+
+.privacy-page__content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+  padding-block: var(--space-8);
+}
+
+.privacy-page__notice,
+.privacy-page__section {
+  max-width: 48rem;
+}
+
+.privacy-page__notice {
+  padding: var(--space-5);
+  color: var(--color-text-muted);
+  background: var(--color-surface-muted);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+}
+
+.privacy-page__sections {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+}
+
+.privacy-page__section {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.privacy-page__section h2 {
+  font-size: var(--font-size-2xl);
+  line-height: var(--line-height-tight);
+  color: var(--color-text);
+}
+
+.privacy-page__section p,
+.privacy-page__contact-list {
+  color: var(--color-text-muted);
+}
+
+.privacy-page__contact-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  padding-left: var(--space-5);
+}

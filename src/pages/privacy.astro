@@ -1,2 +1,107 @@
 ---
+import BaseLayout from '@layouts/BaseLayout.astro';
+import { business } from '@config/activeSite';
+import Section from '@components/ui/Section.astro';
+import Container from '@components/ui/Container.astro';
+import SectionHeading from '@components/ui/SectionHeading.astro';
+
+const policySections = [
+  {
+    title: 'Information we collect',
+    body: [
+      'This website may collect basic information that visitors choose to provide, such as a name, email address, phone number, and message details submitted through a contact form.',
+      'The website may also collect limited technical information, such as browser type, device information, pages visited, and general usage data, depending on the tools enabled for the finished site.',
+    ],
+  },
+  {
+    title: 'How we use information',
+    body: [
+      'Information is used to respond to enquiries, provide requested services, manage customer communication, improve the website, and maintain basic business records.',
+      'This template content should be updated to reflect the actual ways the business uses personal information before the website is published.',
+    ],
+  },
+  {
+    title: 'Contact forms',
+    body: [
+      'When a visitor submits a contact form, the information entered in the form is sent to the business so the enquiry can be answered.',
+      'Do not ask visitors to submit sensitive personal information unless it is necessary for the service being requested.',
+    ],
+  },
+  {
+    title: 'Cookies',
+    body: [
+      'This website may use cookies or similar technologies to support basic website functionality, remember preferences, or understand how visitors use the site.',
+      'If analytics, advertising, booking, payment, chat, or embedded media tools are added, the cookie details should be reviewed and updated.',
+    ],
+  },
+  {
+    title: 'Third-party services',
+    body: [
+      'The finished website may use third-party services such as hosting providers, analytics tools, maps, embedded media, form processing, email delivery, booking systems, or payment providers.',
+      'Each third-party service may process information under its own privacy terms. Add the specific services used by the production website before launch.',
+    ],
+  },
+  {
+    title: 'Data retention',
+    body: [
+      'Personal information should be kept only for as long as needed to respond to enquiries, provide services, meet legal or accounting obligations, and maintain appropriate business records.',
+      'Retention periods should be reviewed and adapted to the business, service type, and local legal requirements.',
+    ],
+  },
+  {
+    title: 'Your rights',
+    body: [
+      'Depending on where visitors are located and which laws apply, they may have rights to request access to, correction of, deletion of, or restriction of their personal information.',
+      'Visitors can contact the business using the details below to ask about personal information connected with the website.',
+    ],
+  },
+];
 ---
+
+<BaseLayout title={`Privacy Policy | ${business.name}`}>
+  <main>
+    <Section>
+      <div class="privacy-page__intro">
+        <SectionHeading
+          eyebrow="Privacy Policy"
+          title="Template privacy policy"
+          description="This generic privacy policy is provided as editable template content for a small business website. It should be reviewed and adapted before production use."
+          align="center"
+        />
+      </div>
+    </Section>
+
+    <Container class="privacy-page__content">
+      <div class="privacy-page__notice">
+        <p>
+          This page is not legal advice and does not guarantee compliance with
+          any specific law or regulation. Replace this copy with a policy that
+          reflects the live website, the business, and the services actually in
+          use.
+        </p>
+      </div>
+
+      <div class="privacy-page__sections">
+        {policySections.map((section) => (
+          <section class="privacy-page__section">
+            <h2>{section.title}</h2>
+            {section.body.map((paragraph) => <p>{paragraph}</p>)}
+          </section>
+        ))}
+
+        <section class="privacy-page__section">
+          <h2>Contact details</h2>
+          <p>
+            Questions about this privacy policy or personal information connected
+            with this website can be sent to {business.name}.
+          </p>
+          <ul class="privacy-page__contact-list">
+            <li>Email: <a href={`mailto:${business.contact.email}`}>{business.contact.email}</a></li>
+            <li>Phone: <a href={`tel:${business.contact.phone}`}>{business.contact.phone}</a></li>
+            <li>Address: {business.contact.address}</li>
+          </ul>
+        </section>
+      </div>
+    </Container>
+  </main>
+</BaseLayout>
