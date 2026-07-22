@@ -85,14 +85,16 @@ Each site config satisfies `BusinessConfig` and includes:
 - `theme`
 - `seo`
 
-## Add A Fourth Site
+## Add Another Site
 
 1. Create a new typed config file in `src/config/sites/`.
 2. Export a `BusinessConfig` object for the new site.
-3. Import it in `src/config/activeSite.ts`.
-4. Add the new ID and config to the `sites` map.
-5. Add optional package scripts using `scripts/site-command.mjs`.
+3. Add its ID and URL to `src/config/siteSelection.ts`.
+4. Import it in `src/config/activeSite.ts` and add it to the `sites` map.
+5. Add the ID to `scripts/site-command.mjs` and add optional package scripts.
 6. Document the new ID in `.env.example` and this file.
+
+See `NEW_SITE_GUIDE.md` for a complete production handoff example.
 
 ## CMS Limitations
 

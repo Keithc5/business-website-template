@@ -4,16 +4,16 @@ Sitemap generation uses Astro's official `@astrojs/sitemap` integration.
 
 ## Site URL
 
-The build reads `PUBLIC_SITE_ID` and selects a matching placeholder `siteUrl`:
+The build reads `PUBLIC_SITE_ID` and selects a matching `siteUrl`:
 
-- `generic`: `https://example.com`
+- `generic`: `https://keithc5.github.io/business-website-template`
 - `glensound-brother-in-law`: `https://glensound-brother-in-law.example.com`
 - `glensound-dad`: `https://glensound-dad.example.com`
 - `balloons4u`: `https://balloons4u.example.com`
 
 Missing or unknown values fall back to `generic`.
 
-Replace these placeholder domains before production deployment.
+Replace the three `*.example.com` domains before production deployment. The generic URL is the demonstration project URL and should also be changed when the template is used in a different repository.
 
 ## Included Routes
 
@@ -44,7 +44,7 @@ It allows normal crawling, disallows `/admin/`, and points crawlers to the gener
 User-agent: *
 Allow: /
 Disallow: /admin/
-Sitemap: https://example.com/sitemap-index.xml
+Sitemap: https://keithc5.github.io/business-website-template/sitemap-index.xml
 ```
 
 The domain changes with `PUBLIC_SITE_ID`.

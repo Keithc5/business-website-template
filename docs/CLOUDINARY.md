@@ -50,4 +50,4 @@ The helper uses automatic format and quality by default and does not fetch or up
 
 ## Not Included Yet
 
-This phase does not include image uploads, Cloudinary credentials, Decap CMS integration, multi-site support, or deployment.
+The current foundation does not include image uploads, credential management, or automatic migration of local/CMS images. Multi-site selection and generic deployment are documented separately; Cloudinary remains optional for every site.

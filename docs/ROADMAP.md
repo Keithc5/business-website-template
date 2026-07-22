@@ -1,4 +1,6 @@
-# Business Website Template Roadmap
+# Historical Business Website Template Roadmap
+
+> Phases 1–6 and 7.1–7.6 are complete for v1.0.0. Unchecked items below reflect the original planning snapshot, not current production status. See `RELEASE_NOTES_V1.md` and `PRODUCTION_CHECKLIST.md`.
 
 ## Phase 1
 - [x] Astro setup

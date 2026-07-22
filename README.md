@@ -1,36 +1,25 @@
 # Business Website Template
 
-Reusable Astro business website template with multi-site configuration, optional Cloudinary delivery support, Decap CMS foundations, SEO metadata, sitemap/robots support, and accessibility/performance baselines.
+A reusable Astro 7 template for small-business websites. One component set powers four configurable site variants, with static output suitable for GitHub Pages or another static host.
 
-## Local Development
+## Features and stack
 
-Install dependencies:
+- Astro 7, TypeScript, component-scoped templates, and plain CSS
+- Typed business content, theme, contact, SEO, gallery, FAQ, and testimonial configuration
+- Responsive pages, accessibility and performance baselines, canonical/Open Graph metadata, robots.txt, sitemap, and 404 output
+- Optional Cloudinary URL helper and an experimental Decap CMS foundation
+- Generic GitHub Pages workflow with project-base-path support
+
+Requirements: Node.js 22.12 or newer and npm (see `.nvmrc`).
+
+## Install and develop
 
 ```sh
 npm install
-```
-
-Start the default local site:
-
-```sh
 npm run dev
 ```
 
-## Builds
-
-Build the default site:
-
-```sh
-npm run build
-```
-
-Build the generic template variant:
-
-```sh
-npm run build:generic
-```
-
-Site-specific development and build commands are also available:
+The default is `generic`. Available site IDs are `generic`, `glensound-brother-in-law`, `glensound-dad`, and `balloons4u`.
 
 ```sh
 npm run dev:generic
@@ -44,18 +33,32 @@ npm run build:glensound-dad
 npm run build:balloons4u
 ```
 
-## GitHub Pages
+Run `npm run check` to lint and build every variant. `npm run build` builds the site selected by `PUBLIC_SITE_ID`, or `generic` when unset.
 
-This repository deploys only the generic template variant to GitHub Pages. The expected project-site URL is:
+## Configuration and structure
 
-```text
-https://keithc5.github.io/business-website-template/
-```
+- `src/config/sites/` — typed content and branding for each site
+- `src/config/types.ts` — `BusinessConfig` contract
+- `src/config/activeSite.ts` and `siteSelection.ts` — registration and selection
+- `src/pages/`, `src/layouts/`, `src/components/` — shared routes and UI
+- `src/styles/` — global tokens, layout, typography, and component styles
+- `public/` — static assets and Decap admin shell
+- `docs/` — architecture, operations, and production guidance
 
-The GitHub Actions workflow builds with `PUBLIC_SITE_ID=generic` and `PUBLIC_DEPLOY_TARGET=github-pages`, which enables Astro's `/business-website-template` base path for deployed assets and links.
+Copy `.env.example` to `.env` when environment overrides are needed. See [multi-site configuration](docs/MULTI_SITE.md) and the [new-site guide](docs/NEW_SITE_GUIDE.md).
 
-See [docs/GITHUB_PAGES.md](docs/GITHUB_PAGES.md) for setup, verification, and production notes.
+## Deployment
 
-## Current Limitations
+The included workflow deploys only the generic demonstration variant. It sets `PUBLIC_SITE_ID=generic` and `PUBLIC_DEPLOY_TARGET=github-pages` so links and assets use `/business-website-template`. See [GitHub Pages deployment](docs/GITHUB_PAGES.md).
 
-Decap production authentication is not configured. The contact form is UI-only. Placeholder domains and placeholder business content should be replaced before production use, and business-specific sites should generally be deployed from separate repositories created from this template.
+For real businesses, create a separate repository per business rather than hosting unrelated businesses below one project path. The trade-offs and handoff process are in the [new-site guide](docs/NEW_SITE_GUIDE.md).
+
+## Cloudinary and Decap CMS
+
+The Cloudinary helper can generate delivery URLs when `PUBLIC_CLOUDINARY_CLOUD_NAME` is set, but uploads and asset migration are not implemented. Decap CMS exposes an experimental settings collection; production authentication and full mapping into per-site TypeScript configs are not implemented. See [Cloudinary](docs/CLOUDINARY.md) and [Decap CMS](docs/DECAP_CMS.md).
+
+## Current limitations
+
+The contact form is UI-only. Example variants contain placeholder domains, contact details, copy, testimonials, hours, and images. Legal text needs business-specific review. Complete the [production checklist](docs/PRODUCTION_CHECKLIST.md) before any real deployment.
+
+Browse all guides in the [documentation index](docs/README.md), including accessibility, performance, SEO, robots/sitemap, deployment, release notes, and production review.
