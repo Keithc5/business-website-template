@@ -5,6 +5,7 @@ export const glensoundDadSite = {
   ...genericSite,
   name: "Glensound",
   tagline: "Event sound, lighting, and equipment hire",
+  siteUrl: "https://glensound-dad.example.com",
   contact: {
     phone: "000 000 0000",
     email: "hello@example.com",
@@ -75,5 +76,8 @@ export const glensoundDadSite = {
     title: "Glensound | Event Sound & Equipment Hire",
     description:
       "Placeholder website copy for a Glensound event sound, lighting, and equipment hire business.",
+    image: "/images/social/default-social.svg",
+    locale: "en_IE",
+    siteName: "Glensound",
   },
 } satisfies BusinessConfig;

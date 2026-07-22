@@ -58,8 +58,10 @@ const policySections = [
 ];
 ---
 
-<BaseLayout title={`Privacy Policy | ${business.name}`}>
-  <main>
+<BaseLayout
+  title={`Privacy Policy | ${business.name}`}
+  description={`Read the template privacy policy for ${business.name}, including contact forms, cookies, third-party services, data retention, and contact details.`}
+>
     <Section>
       <div class="privacy-page__intro">
         <SectionHeading
@@ -67,6 +69,7 @@ const policySections = [
           title="Template privacy policy"
           description="This generic privacy policy is provided as editable template content for a small business website. It should be reviewed and adapted before production use."
           align="center"
+          headingLevel="h1"
         />
       </div>
     </Section>
@@ -103,5 +106,4 @@ const policySections = [
         </section>
       </div>
     </Container>
-  </main>
 </BaseLayout>

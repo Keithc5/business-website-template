@@ -1,43 +1,61 @@
-# Astro Starter Kit: Minimal
+# Business Website Template
+
+Reusable Astro business website template with multi-site configuration, optional Cloudinary delivery support, Decap CMS foundations, SEO metadata, sitemap/robots support, and accessibility/performance baselines.
+
+## Local Development
+
+Install dependencies:
 
 ```sh
-npm create astro@latest -- --template minimal
+npm install
 ```
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+Start the default local site:
 
-## 🚀 Project Structure
+```sh
+npm run dev
+```
 
-Inside of your Astro project, you'll see the following folders and files:
+## Builds
+
+Build the default site:
+
+```sh
+npm run build
+```
+
+Build the generic template variant:
+
+```sh
+npm run build:generic
+```
+
+Site-specific development and build commands are also available:
+
+```sh
+npm run dev:generic
+npm run dev:glensound-brother-in-law
+npm run dev:glensound-dad
+npm run dev:balloons4u
+
+npm run build:generic
+npm run build:glensound-brother-in-law
+npm run build:glensound-dad
+npm run build:balloons4u
+```
+
+## GitHub Pages
+
+This repository deploys only the generic template variant to GitHub Pages. The expected project-site URL is:
 
 ```text
-/
-├── public/
-├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
+https://keithc5.github.io/business-website-template/
 ```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+The GitHub Actions workflow builds with `PUBLIC_SITE_ID=generic` and `PUBLIC_DEPLOY_TARGET=github-pages`, which enables Astro's `/business-website-template` base path for deployed assets and links.
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+See [docs/GITHUB_PAGES.md](docs/GITHUB_PAGES.md) for setup, verification, and production notes.
 
-Any static assets, like images, can be placed in the `public/` directory.
+## Current Limitations
 
-## 🧞 Commands
-
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+Decap production authentication is not configured. The contact form is UI-only. Placeholder domains and placeholder business content should be replaced before production use, and business-specific sites should generally be deployed from separate repositories created from this template.

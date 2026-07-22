@@ -6,12 +6,15 @@ import SectionHeading from '@components/ui/SectionHeading.astro';
 import Grid from '@components/ui/Grid.astro';
 import Card from '@components/ui/Card.astro';
 import ContactCTA from '@components/sections/ContactCTA.astro';
+import { withBasePath } from '@utils/site-url';
 
 const featuredItem = business.gallery[0];
 ---
 
-<BaseLayout title={`Gallery | ${business.name}`}>
-  <main>
+<BaseLayout
+  title={`Gallery | ${business.name}`}
+  description={business.galleryPage.description}
+>
     <Section>
       <div class="gallery-page__intro">
         <SectionHeading
@@ -19,6 +22,7 @@ const featuredItem = business.gallery[0];
           title={business.galleryPage.title}
           description={business.galleryPage.description}
           align="center"
+          headingLevel="h1"
         />
       </div>
     </Section>
@@ -28,7 +32,14 @@ const featuredItem = business.gallery[0];
         <Grid columns={3} gap="md">
           {business.gallery.map((item) => (
             <figure class="gallery-item">
-              <img class="gallery-item__image" src={item.image} alt={item.alt} loading="lazy" />
+              <img
+                class="gallery-item__image"
+                src={withBasePath(item.image)}
+                alt={item.alt}
+                width="800"
+                height="600"
+                loading="lazy"
+              />
               <figcaption class="gallery-item__title">{item.title}</figcaption>
             </figure>
           ))}
@@ -47,8 +58,10 @@ const featuredItem = business.gallery[0];
         <Card title={featuredItem.title} description={featuredItem.alt}>
           <img
             slot="image"
-            src={featuredItem.image}
+            src={withBasePath(featuredItem.image)}
             alt={featuredItem.alt}
+            width="800"
+            height="600"
             loading="lazy"
           />
         </Card>
@@ -64,5 +77,4 @@ const featuredItem = business.gallery[0];
       secondaryCtaLabel={business.contactCta.secondaryCtaLabel}
       secondaryCtaHref={business.contactCta.secondaryCtaHref}
     />
-  </main>
 </BaseLayout>

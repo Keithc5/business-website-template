@@ -54,6 +54,11 @@ a:hover {
   color: var(--color-primary-dark);
 }
 
+a:focus-visible {
+  outline: 3px solid var(--color-focus);
+  outline-offset: 3px;
+}
+
 ul,
 ol {
   padding-inline-start: var(--space-5);

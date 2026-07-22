@@ -1,0 +1,28 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+import Section from "@components/ui/Section.astro";
+import SectionHeading from "@components/ui/SectionHeading.astro";
+import Button from "@components/ui/Button.astro";
+import { business } from "@config/activeSite";
+---
+
+<BaseLayout
+  title={`Page not found | ${business.name}`}
+  description="The page you were looking for could not be found."
+  noindex
+>
+  <Section>
+    <div class="stack">
+      <SectionHeading
+        eyebrow="404"
+        title="Page not found"
+        description="The page you were looking for could not be found. It may have moved, or the link may no longer be available."
+        headingLevel="h1"
+      />
+
+      <div>
+        <Button href="/">Back to home</Button>
+      </div>
+    </div>
+  </Section>
+</BaseLayout>

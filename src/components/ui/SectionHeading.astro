@@ -4,6 +4,7 @@ interface Props {
   title: string;
   description?: string;
   align?: "left" | "center";
+  headingLevel?: "h1" | "h2";
 }
 
 const {
@@ -11,7 +12,10 @@ const {
   title,
   description,
   align = "left",
+  headingLevel = "h2",
 } = Astro.props;
+
+const HeadingTag = headingLevel;
 ---
 
 <div class:list={[
@@ -19,6 +23,6 @@ const {
   `section-heading--${align}`,
 ]}>
   {eyebrow && <p class="section-heading__eyebrow">{eyebrow}</p>}
-  <h2 class="section-heading__title">{title}</h2>
+  <HeadingTag class="section-heading__title">{title}</HeadingTag>
   {description && <p class="section-heading__description">{description}</p>}
 </div>

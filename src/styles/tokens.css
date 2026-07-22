@@ -2,6 +2,7 @@
   --color-primary: #2563eb;
   --color-primary-dark: #1d4ed8;
   --color-primary-contrast: #ffffff;
+  --color-focus: #1d4ed8;
 
   --color-secondary: #111827;
   --color-secondary-dark: #000000;
@@ -14,6 +15,7 @@
   --color-surface: #ffffff;
   --color-surface-muted: #f3f4f6;
   --color-border: #e5e7eb;
+  --color-border-strong: #9ca3af;
 
   --space-1: 0.25rem;
   --space-2: 0.5rem;

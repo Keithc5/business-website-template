@@ -1,26 +1,52 @@
 ---
 import Header from '@components/layout/Header.astro';
 import Footer from '@components/layout/Footer.astro';
+import SEO from '@components/layout/SEO.astro';
+import { business } from '@config/activeSite';
+import { withBasePath } from '@utils/site-url';
 import '@styles/globals.css';
 
 interface Props {
-    title: string;
+    title?: string;
+    description?: string;
+    canonicalUrl?: string;
+    image?: string;
+    noindex?: boolean;
 }
 
-const { title } = Astro.props;
+const {
+    title,
+    description,
+    canonicalUrl,
+    image,
+    noindex,
+} = Astro.props;
+
+const pageLanguage = business.seo.locale.replace("_", "-") || "en";
 ---
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang={pageLanguage}>
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
-    <title>{title}</title>
+    <link rel="icon" href={withBasePath("/favicon.ico")} sizes="any" />
+    <link rel="icon" href={withBasePath("/favicon.svg")} type="image/svg+xml" />
+    <SEO
+        title={title}
+        description={description}
+        canonicalUrl={canonicalUrl}
+        image={image}
+        noindex={noindex}
+    />
 </head>
 
 <body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
 <Header />
-<slot />
+<main id="main-content" tabindex="-1">
+    <slot />
+</main>
 <Footer />
 </body>
 

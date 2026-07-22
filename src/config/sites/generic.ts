@@ -3,6 +3,7 @@ import type { BusinessConfig } from "@config/types";
 export const genericSite: BusinessConfig = {
   name: "Business Name",
   tagline: "Professional websites for small local businesses",
+  siteUrl: "https://keithc5.github.io/business-website-template",
 
   contact: {
     phone: "087 123 4567",
@@ -209,5 +210,8 @@ export const genericSite: BusinessConfig = {
     title: "Business Name | Local Irish Business",
     description:
       "A modern, professional website template for small local Irish businesses.",
+    image: "/images/social/default-social.svg",
+    locale: "en_IE",
+    siteName: "Business Name",
   },
 };

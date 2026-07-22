@@ -5,6 +5,7 @@ export const balloons4uSite = {
   ...genericSite,
   name: "Balloons4U",
   tagline: "Balloon decor for celebrations, events, and displays",
+  siteUrl: "https://balloons4u.example.com",
   contact: {
     phone: "000 000 0000",
     email: "hello@example.com",
@@ -75,5 +76,8 @@ export const balloons4uSite = {
     title: "Balloons4U | Balloon Decor & Event Displays",
     description:
       "Placeholder website copy for a Balloons4U balloon decor and celebration display business.",
+    image: "/images/social/default-social.svg",
+    locale: "en_IE",
+    siteName: "Balloons4U",
   },
 } satisfies BusinessConfig;

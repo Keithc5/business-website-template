@@ -1,0 +1,73 @@
+---
+import { business } from "@config/activeSite";
+import { absoluteSiteUrl, stripBasePath } from "@utils/site-url";
+
+interface Props {
+  title?: string;
+  description?: string;
+  canonicalUrl?: string;
+  image?: string;
+  noindex?: boolean;
+  type?: "website" | "article";
+}
+
+const {
+  title = business.seo.title,
+  description = business.seo.description,
+  canonicalUrl,
+  image = business.seo.image,
+  noindex = false,
+  type = "website",
+} = Astro.props;
+
+const siteUrl = (business.siteUrl || "https://example.com").replace(/\/$/, "");
+const resolveUrl = (value: string) => absoluteSiteUrl(siteUrl, value);
+
+const canonical = canonicalUrl
+  ? resolveUrl(canonicalUrl)
+  : resolveUrl(stripBasePath(Astro.url.pathname));
+
+const socialImage = resolveUrl(image);
+const twitterHandle = business.social.twitterHandle;
+
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  name: business.name,
+  url: siteUrl,
+  description: business.seo.description,
+  email: business.contact.email,
+  telephone: business.contact.phone,
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: business.contact.address,
+  },
+  image: socialImage,
+};
+
+const structuredDataJson = JSON.stringify(structuredData).replace(
+  /</g,
+  "\\u003c",
+);
+---
+
+<title>{title}</title>
+<meta name="description" content={description} />
+{noindex && <meta name="robots" content="noindex, nofollow" />}
+<link rel="canonical" href={canonical} />
+
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+<meta property="og:type" content={type} />
+<meta property="og:url" content={canonical} />
+<meta property="og:image" content={socialImage} />
+<meta property="og:site_name" content={business.seo.siteName} />
+<meta property="og:locale" content={business.seo.locale} />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content={title} />
+<meta name="twitter:description" content={description} />
+<meta name="twitter:image" content={socialImage} />
+{twitterHandle && <meta name="twitter:site" content={twitterHandle} />}
+
+<script type="application/ld+json" set:html={structuredDataJson} />

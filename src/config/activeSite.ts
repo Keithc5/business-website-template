@@ -3,6 +3,7 @@ import { balloons4uSite } from "@config/sites/balloons4u";
 import { genericSite } from "@config/sites/generic";
 import { glensoundBrotherInLawSite } from "@config/sites/glensound-brother-in-law";
 import { glensoundDadSite } from "@config/sites/glensound-dad";
+import { getSiteId } from "@config/siteSelection";
 
 export const sites = {
   generic: genericSite,
@@ -13,12 +14,6 @@ export const sites = {
 
 export type SiteId = keyof typeof sites;
 
-const isSiteId = (value: string): value is SiteId => value in sites;
-
-const requestedSiteId = import.meta.env.PUBLIC_SITE_ID ?? "generic";
-
-export const siteId: SiteId = isSiteId(requestedSiteId)
-  ? requestedSiteId
-  : "generic";
+export const siteId: SiteId = getSiteId(import.meta.env.PUBLIC_SITE_ID);
 
 export const business: BusinessConfig = sites[siteId];

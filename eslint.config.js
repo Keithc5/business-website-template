@@ -12,7 +12,7 @@ export default [
   },
 
   {
-    files: ["scripts/**/*.mjs"],
+    files: ["astro.config.mjs", "scripts/**/*.mjs"],
     languageOptions: {
       globals: {
         console: "readonly",

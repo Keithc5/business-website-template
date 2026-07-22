@@ -1,4 +1,6 @@
 ---
+import { withBasePath } from '@utils/site-url';
+
 type Variant = "primary" | "secondary" | "outline" | "ghost";
 type Size = "sm" | "md" | "lg";
 
@@ -30,7 +32,7 @@ const classes = [
 ---
 
 {href ? (
-  <a href={href} class={classes}>
+  <a href={withBasePath(href)} class={classes}>
     <slot />
   </a>
 ) : (

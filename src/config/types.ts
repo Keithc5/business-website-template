@@ -13,6 +13,7 @@ export interface SocialLinks {
   facebook: string;
   instagram: string;
   linkedin: string;
+  twitterHandle?: string;
 }
 
 export interface ServiceItem {
@@ -111,11 +112,15 @@ export interface ThemeConfig {
 export interface SeoConfig {
   title: string;
   description: string;
+  image: string;
+  locale: string;
+  siteName: string;
 }
 
 export interface BusinessConfig {
   name: string;
   tagline: string;
+  siteUrl: string;
   contact: ContactDetails;
   openingHours: OpeningHoursItem[];
   social: SocialLinks;

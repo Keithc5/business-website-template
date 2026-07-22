@@ -1,4 +1,6 @@
 ---
+import { withBasePath } from '@utils/site-url';
+
 interface Props {
   title?: string;
   description?: string;
@@ -24,7 +26,7 @@ const hasFooter = Astro.slots.has("footer");
 ---
 
 {href ? (
-  <a href={href} class={classes}>
+  <a href={withBasePath(href)} class={classes}>
     {hasImage && (
       <div class="card__image">
         <slot name="image" />

@@ -27,7 +27,9 @@ const {
 
     <form class="contact-form" action="#" method="post">
       <div class="contact-form__field">
-        <label class="contact-form__label" for="contact-name">Full Name</label>
+        <label class="contact-form__label" for="contact-name">
+          Full Name <span class="contact-form__required">(required)</span>
+        </label>
         <input
           class="contact-form__control"
           id="contact-name"
@@ -39,7 +41,9 @@ const {
       </div>
 
       <div class="contact-form__field">
-        <label class="contact-form__label" for="contact-email">Email Address</label>
+        <label class="contact-form__label" for="contact-email">
+          Email Address <span class="contact-form__required">(required)</span>
+        </label>
         <input
           class="contact-form__control"
           id="contact-email"
@@ -62,7 +66,9 @@ const {
       </div>
 
       <div class="contact-form__field">
-        <label class="contact-form__label" for="contact-subject">Subject</label>
+        <label class="contact-form__label" for="contact-subject">
+          Subject <span class="contact-form__required">(required)</span>
+        </label>
         <input
           class="contact-form__control"
           id="contact-subject"
@@ -74,7 +80,9 @@ const {
       </div>
 
       <div class="contact-form__field contact-form__field--full">
-        <label class="contact-form__label" for="contact-message">Message</label>
+        <label class="contact-form__label" for="contact-message">
+          Message <span class="contact-form__required">(required)</span>
+        </label>
         <textarea
           class="contact-form__control contact-form__textarea"
           id="contact-message"

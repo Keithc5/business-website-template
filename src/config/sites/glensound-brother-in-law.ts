@@ -5,6 +5,7 @@ export const glensoundBrotherInLawSite = {
   ...genericSite,
   name: "Glensound",
   tagline: "Sound, lighting, and event production support",
+  siteUrl: "https://glensound-brother-in-law.example.com",
   contact: {
     phone: "000 000 0000",
     email: "hello@example.com",
@@ -75,5 +76,8 @@ export const glensoundBrotherInLawSite = {
     title: "Glensound | Sound, Lighting & Event Production",
     description:
       "Placeholder website copy for a Glensound sound, lighting, and event production business.",
+    image: "/images/social/default-social.svg",
+    locale: "en_IE",
+    siteName: "Glensound",
   },
 } satisfies BusinessConfig;

@@ -10,8 +10,7 @@ import ContactCTA from "@components/sections/ContactCTA.astro";
 import ContactForm from "@components/sections/ContactForm.astro";
 ---
 
-<BaseLayout title={business.seo.title}>
-  <main>
+<BaseLayout title={business.seo.title} description={business.seo.description}>
     <Hero
       eyebrow={business.tagline}
       title={business.name}
@@ -63,5 +62,4 @@ import ContactForm from "@components/sections/ContactForm.astro";
       title={business.contactForm.title}
       description={business.contactForm.description}
     />
-  </main>
 </BaseLayout>

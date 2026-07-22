@@ -8,8 +8,10 @@ import Card from '@components/ui/Card.astro';
 import ContactCTA from '@components/sections/ContactCTA.astro';
 ---
 
-<BaseLayout title={`About | ${business.name}`}>
-  <main>
+<BaseLayout
+  title={`About | ${business.name}`}
+  description={business.aboutPage.description}
+>
     <Section>
       <div class="about-page__intro">
         <SectionHeading
@@ -17,6 +19,7 @@ import ContactCTA from '@components/sections/ContactCTA.astro';
           title={business.aboutPage.title}
           description={business.aboutPage.description}
           align="center"
+          headingLevel="h1"
         />
       </div>
     </Section>
@@ -56,5 +59,4 @@ import ContactCTA from '@components/sections/ContactCTA.astro';
       secondaryCtaLabel={business.contactCta.secondaryCtaLabel}
       secondaryCtaHref={business.contactCta.secondaryCtaHref}
     />
-  </main>
 </BaseLayout>
